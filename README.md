@@ -6,22 +6,22 @@ This Neovim configuration is optimized for Rust development, but it also support
 
 - Package Manager: Lazy.nvim
 - Other Plugins:
-  1. conform.nvim
-  2. copilot.nvim
-  3. lualine.nvim
-  4. nvim-autopairs.nvim
-  5. nvim-cmp.nvim
-  6. rust_analyzer (LSP for Rust)
-  7. telescope.nvim
-  8. treesitter.nvim
-  9. monochrome (colorscheme)
-  10. comment.nvim
-  11. mason.nvim
-  12. dressing.nvim
-  13. crates.nvim
-  14. nvim-colorizer
-  15. bufferline.nvim
-  16. rust.vim
+  - conform.nvim
+  - copilot.nvim
+  - lualine.nvim
+  - nvim-autopairs.nvim
+  - nvim-cmp.nvim
+  - rust_analyzer (LSP for Rust)
+  - telescope.nvim
+  - treesitter.nvim
+  - monochrome (colorscheme)
+  - comment.nvim
+  - mason.nvim
+  - dressing.nvim
+  - crates.nvim
+  - nvim-colorizer
+  - bufferline.nvim
+  - rust.vim
 
 Feel free to use and modify this configuration according to your requirements.
 
