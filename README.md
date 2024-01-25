@@ -1,3 +1,3 @@
-# Neovim config file for mainily Rust Development.
+# Neovim config, mainily Rust Development.
 It works for React as well.(not recommended).
 
