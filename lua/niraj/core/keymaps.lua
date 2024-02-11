@@ -1,8 +1,14 @@
 -- set leader key to space
-
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
+
+vim.api.nvim_set_keymap("n", "0", "$", { noremap = true })
+vim.api.nvim_set_keymap("v", "0", "$", { noremap = true })
+
+-- Map 1 to jump to the beginning of a line in normal and visual modes
+vim.api.nvim_set_keymap("n", "1", "^", { noremap = true })
+vim.api.nvim_set_keymap("v", "1", "^", { noremap = true })
 
 ---------------------
 -- General Keymaps -------------------

@@ -1,9 +1,9 @@
 local opt = vim.opt -- for conciseness
+-- set vim background to transparent
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
-
 --set font size to 14
 opt.fillchars = "eob: "
 -- tabs & indentation

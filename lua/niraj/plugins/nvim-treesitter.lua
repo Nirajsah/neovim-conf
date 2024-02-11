@@ -4,61 +4,52 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
 			"windwp/nvim-ts-autotag",
+			"axelvc/template-string.nvim",
 		},
 		config = function()
-			-- import nvim-treesitter plugin
-			local treesitter = require("nvim-treesitter.configs")
-
-			-- configure treesitter
-			treesitter.setup({ -- enable syntax highlighting
-				highlight = {
-					enable = true,
-				},
-				-- enable indentation
-				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
-
-				rainbow = {
-					enable = true,
-					extended_mode = true,
-					max_file_lines = nil,
-				},
-				-- ensure these language parsers are installed
+			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
-					"json",
-					"javascript",
-					"typescript",
 					"tsx",
-					"yaml",
+					"lua",
+					"vim",
+					"typescript",
+					"javascript",
 					"html",
 					"css",
+					"json",
+					"graphql",
+					"regex",
+					"rust",
 					"prisma",
 					"markdown",
 					"markdown_inline",
-					"svelte",
-					"graphql",
-					"bash",
-					"lua",
-					"vim",
-					"dockerfile",
-					"gitignore",
-					"query",
+				},
+
+				sync_install = false,
+
+				auto_install = true,
+
+				highlight = {
+					enable = true,
+
+					additional_vim_regex_highlighting = false,
+				},
+				autotag = {
+					enable = true,
 				},
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<C-space>",
-						node_incremental = "<C-space>",
+						init_selection = "<enter>",
+						node_incremental = "<enter>",
 						scope_incremental = false,
 						node_decremental = "<bs>",
 					},
 				},
 			})
+
+			require("template-string").setup({})
 		end,
 	},
 }

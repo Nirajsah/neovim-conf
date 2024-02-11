@@ -1,15 +1,34 @@
 return {
 	"nvim-lua/plenary.nvim",
 
-	-- add monochrome theme
-	"kdheepak/monochrome.nvim",
+	-- "kdheepak/monochrome.nvim"
 	{ -- colorscheme
-		"mellow-theme/mellow.nvim",
+		"kdheepak/monochrome.nvim",
 		config = function()
-			vim.cmd([[colorscheme mellow]])
+			vim.cmd([[colorscheme monochrome]])
 		end,
 	},
-
+	{
+		"jesseleite/nvim-noirbuddy",
+		dependencies = {
+			{ "tjdevries/colorbuddy.nvim", branch = "dev" },
+		},
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("noirbuddy").setup({
+				preset = "miami-nights",
+			})
+		end,
+		opts = {
+			-- All of your `setup(opts)` will go here
+		},
+	},
+	-- {
+	-- 	"NvChad/nvim-colorizer.lua",
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- 	config = true,
+	-- },
 	{
 		"numToStr/Comment.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -28,11 +47,6 @@ return {
 				pre_hook = ts_context_commentstring.create_pre_hook(),
 			})
 		end,
-	},
-
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
 	},
 
 	{
@@ -188,12 +202,6 @@ return {
 	},
 
 	{
-		"NvChad/nvim-colorizer.lua",
-		event = { "BufReadPre", "BufNewFile" },
-		config = true,
-	},
-
-	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
 			require("nvim-web-devicons").set_icon({
@@ -211,10 +219,15 @@ return {
 		"akinsho/bufferline.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		version = "*",
+		keys = {
+			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+		},
 		opts = {
 			options = {
 				mode = "tabs",
-				separator_style = "slant",
+				show_buffer_close_icons = false,
+				show_close_icon = false,
 			},
 		},
 	},
