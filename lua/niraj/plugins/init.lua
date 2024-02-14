@@ -2,12 +2,14 @@ return {
 	"nvim-lua/plenary.nvim",
 
 	-- "kdheepak/monochrome.nvim"
-	{ -- colorscheme
-		"kdheepak/monochrome.nvim",
-		config = function()
-			vim.cmd([[colorscheme monochrome]])
-		end,
-	},
+	--
+	-- { -- colorscheme
+	-- 	"kdheepak/monochrome.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[colorscheme monochrome]])
+	-- 	end,
+	-- },
+
 	{
 		"jesseleite/nvim-noirbuddy",
 		dependencies = {
@@ -17,7 +19,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("noirbuddy").setup({
-				preset = "miami-nights",
+				preset = "kiwi",
 			})
 		end,
 		opts = {

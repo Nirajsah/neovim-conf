@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
+
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
@@ -92,6 +93,42 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			init_options = {
+				userLanguages = {
+					eelixir = "html-eex",
+					eruby = "erb",
+					rust = "html",
+				},
+			},
+			filetypes = {
+				"css",
+				"scss",
+				"sass",
+				"postcss",
+				"html",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"svelte",
+				"vue",
+				"rust",
+				"rs",
+			},
+			experimental = {
+				classRegex = {
+					[[class="([^"]*)]],
+					'class=\\s+"([^"]*)',
+				},
+			},
+			root_dir = require("lspconfig").util.root_pattern(
+				"tailwind.config.js",
+				"tailwind.config.ts",
+				"postcss.config.js",
+				"postcss.config.ts",
+				"package.json",
+				"node_modules"
+			),
 		})
 
 		-- configure svelte server
