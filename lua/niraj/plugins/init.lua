@@ -1,36 +1,12 @@
 return {
 	"nvim-lua/plenary.nvim",
 
-	-- "kdheepak/monochrome.nvim"
-	--
-	-- { -- colorscheme
-	-- 	"kdheepak/monochrome.nvim",
-	-- 	config = function()
-	-- 		vim.cmd([[colorscheme monochrome]])
-	-- 	end,
-	-- },
-
 	{
-		"jesseleite/nvim-noirbuddy",
-		dependencies = {
-			{ "tjdevries/colorbuddy.nvim", branch = "dev" },
-		},
-		lazy = false,
-		priority = 1000,
+		"mellow-theme/mellow.nvim",
 		config = function()
-			require("noirbuddy").setup({
-				preset = "kiwi",
-			})
+			vim.cmd([[colorscheme mellow]])
 		end,
-		opts = {
-			-- All of your `setup(opts)` will go here
-		},
 	},
-	-- {
-	-- 	"NvChad/nvim-colorizer.lua",
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	config = true,
-	-- },
 	{
 		"numToStr/Comment.nvim",
 		event = { "BufReadPre", "BufNewFile" },
