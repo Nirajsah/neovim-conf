@@ -1,21 +1,8 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "rust-analyzer", "pyright" }
-vim.lsp.enable(servers)
-
-vim.lsp.config("rust-analyzer", {
-  cmd = { "/opt/homebrew/bin/rust-analyzer" },
-  root_dir = function(fname)
-    return vim.fs.root(fname, { "Cargo.toml", "rust-toolchain.toml" })
-  end,
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = {
-        allFeatures = true,
-      },
-    },
-  },
-})
+vim.api.nvim_create_user_command("LspInfo", function()
+  vim.cmd "checkhealth vim.lsp"
+end, { desc = "Alias to :checkhealth vim.lsp" })
 
 vim.lsp.config("pyright", {
   settings = {
@@ -27,11 +14,7 @@ vim.lsp.config("pyright", {
   },
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == "rust-analyzer" then
-      vim.lsp.semantic_tokens.start(args.buf, client.id)
-    end
-  end,
-})
+local servers = { "html", "cssls", "pyright" }
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
+end
